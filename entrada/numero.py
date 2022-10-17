@@ -6,11 +6,16 @@ que permiten pedir entrada de números
 import sys
 import random
 
+from entrada.menú import color_asignado
+
 
 MIN=0
 MAX=100
 
-def numero_adivinar(minimo, maximo):
+def numero_a_adivinar(minimo, maximo):
+    """
+    Esta función crea un valor random entre los parámetros que queramos
+    """
     numero = random.randint(minimo, maximo)
     return numero
 
