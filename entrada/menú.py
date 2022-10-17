@@ -7,16 +7,13 @@ Variables para crear un menu interactivo y atractivo
 """
 print_green = lambda x: cprint(x, 'green')
 print_red = lambda x: cprint(x, 'red')
-result = pyfiglet.figlet_format("Adivina el Numero", font = "epic"  )
-print_green(result)
-inicio=input("Presione enter para iniciar ")
-print("\n")
-
-# Nivel 1 (simple) (entre 0 y 100), 
-# Nivel 2 (intermedio) (entre 0 y 1.000), 
-# Nivel 3 (avanzado) (entre 0 y 1.000.000)
-# Nivel 4 (experto) (entre 0 y 1.000.000.000.000)
  
+def menu_visual(titulo):
+    result = pyfiglet.figlet_format(titulo, font = "epic"  )
+    print_green(result)
+    inicio=input("Presione enter para iniciar ")
+    print("\n")
+    return result
 
 """
 Esta función imprime el menu de selección del juego 
@@ -36,11 +33,10 @@ Esta función utiliza la anterior y agrega una post-condición
 sobre los extremos del número a introducir.
 """
 def nivel_seleccionado():
+    menu_visual("Adivina el Numero")
     while True:
         selector_nivel=menu_seleccion()
-        if 1<selector_nivel<5:
+        if 0<selector_nivel<5:
             break
         else: print_red("\n Solo están disponibles los niveles 1-4 \n")
     return selector_nivel
-    
-nivel_seleccionado()

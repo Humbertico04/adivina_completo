@@ -4,11 +4,15 @@ que permiten pedir entrada de números
 """
 
 import sys
+import random
 
 
 MIN=0
 MAX=100
 
+def numero_adivinar(minimo, maximo):
+    numero = random.randint(minimo, maximo)
+    return numero
 
 def pedir_entrada_numero(invitacion):
     """

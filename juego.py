@@ -7,6 +7,8 @@ from entrada import (
     pedir_entrada_numero_delimitado,
     pedir_entrada_si_o_no,
 )
+from entrada.menú import nivel_seleccionado
+from entrada.numero import numero_adivinar
 
 
 def jugar_una_vez(numero, minimo, maximo):
@@ -44,18 +46,27 @@ def jugar_una_partida(numero, minimo, maximo):
             return
 
 
-def decidir_limites():
-    while True:
-        minimo = pedir_entrada_numero("Cual es el mínimo ?")
-        maximo = pedir_entrada_numero("Quelle est la borne maximale ?")
-        if maximo > minimo:
-            return minimo, maximo
+def niveles():
+    selector_nivel = nivel_seleccionado()
+    if selector_nivel == 1:
+        minimo = 0
+        maximo = 100
+    elif selector_nivel == 2:
+        minimo = 0
+        maximo = 1000
+    elif selector_nivel == 3:
+        minimo = 0
+        maximo = 1000000
+    else:
+        minimo = 0
+        maximo = 1000000000000
+    return minimo, maximo
 
 
 def jugar():
-    minimo, maximo = decidir_limites()
+    minimo, maximo = niveles()
     while True:
-        numero = pedir_entrada_del_numero_incognita(minimo, maximo)
+        numero = numero_adivinar(minimo, maximo)
         jugar_una_partida(numero, minimo, maximo)
         if not pedir_entrada_si_o_no("¿Desea jugar una nueva partida?"):
             print("¡Hasta pronto!")
